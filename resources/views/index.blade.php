@@ -13,5 +13,20 @@
        <h1>spots</h1>
        <a href="/create">投稿</a>
        <a href="/list">検索</a>
+       <form action="/search" method="POST">
+           @csrf
+           <input type="text" name="search[title]">
+           
+            <div>
+                  <P>カテゴリー</P>
+                  <select name="search[category]">
+                      <option value="food">食事</option>
+                      <option value="tourism">観光</option>
+                      <option value="stay">宿泊</option>
+                  </select>
+              </div>
+            <!--<textarea name="search[body]"></textarea>-->
+           <input type="submit" value="検索">
+       </form>
     </body>
 </html>

@@ -13,6 +13,7 @@
        <h1>spots</h1>
        <div>
            <h1>{{ $post->title }}</h1>
+           <p>{{ $post->category }}</p>
            <p>{{ $post->body }}</p>
        </div>
        <a href="/{{$post->id}}/edit">編集する</a>

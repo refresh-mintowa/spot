@@ -19,3 +19,6 @@ Route::get('/{post}/edit', 'PostController@edit');
 Route::put('/{post}', 'PostController@update');
 
 Route::post('/save', 'PostController@save');
+
+Route::post('/search', 'PostController@search');
+Route::get('/results', 'PostController@results');

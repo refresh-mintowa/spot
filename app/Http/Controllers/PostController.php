@@ -32,4 +32,60 @@ class PostController extends Controller
         $post->fill($input_update)->save();
         return redirect('/'.$post->id);
     }
+    public function search(Request $request,Post $post){
+        // dd($request->input());
+        
+       $aa = $post->where('title','like',"%{$request->search['title']}%")
+                   ->orWhere('body','like',"%{$request->search['title']}%")->get();    
+        // $search_result = $request->title.'の検索結果'.count($post).'件';
+        
+        return view('results')->with(['posts'=>$aa]);
+        
+        // return view('results')->with(['posts'=>$post]);
+        
+        // $title = Request::get('title');
+        
+        // if($title){
+        // $item = Post::where('title', 'LIKE', "%$title%")->simplePaginate(2);
+            
+        // }else{
+        //      $item = Post::select('*')->simplePaginate(2);
+        //      $title='全件表示';
+        // }
+        
+        // return view('results',['items' => $item])->with('title',$title);
+        
+        
+        // $query = User::query();
+        
+        // $search_name = $request->input('title');
+        //   $query = User::query()
+        //     ->when($request->has('title'), function($query) use ($search_name) {
+        //         $query->where('title', 'like', '%' . $search_name . '%');
+        //     })
+            
+        //      return view('results');
+        
+        
+        // $search_name = $request->input('title');
+        // $query = User::query();
+        
+        // if(!empty($search_name)){
+        //     $query->where('title','like','%'.$search_name.'%');
+        // }
+        
+        // $books = $query->get();
+        
+        // return view('results',compact('books','search_name'));
+        // if($request->has('title' && $search_name != '')){
+        //     $query->where('title','like','%'.$search_name.'%')->get();
+        // }
+        // $data = $query->pagenate(10);
+        
+        // return view('results',['data'=>$data]);
+    }
+    // public function results(Post $post){
+    //     return view('results',['data'=>$data]);
+    // }
 }
+

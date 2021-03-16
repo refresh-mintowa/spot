@@ -19,6 +19,14 @@
                   <input type="text" name="post[title]">
               </div>
                <div>
+                  <P>カテゴリー</P>
+                  <select name="post[category]">
+                      <option value="food">食事</option>
+                      <option value="tourism">観光</option>
+                      <option value="stay">宿泊</option>
+                  </select>
+              </div>
+               <div>
                   <P>内容</P>
                   <textarea name="post[body]"></textarea>
               </div>
