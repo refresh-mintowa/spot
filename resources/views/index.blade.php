@@ -15,8 +15,10 @@
        <a href="/list">検索</a>
        <form action="/search" method="POST">
            @csrf
-           <input type="text" name="search[title]">
-           
+           <div>
+               <p>フリーワード</p>
+            　 <input type="text" name="search[title]">
+           </div>
             <div>
                   <P>カテゴリー</P>
                   <select name="search[category]">

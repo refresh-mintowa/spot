@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
-       <h1>検索結果</h1>
+       <h1>{{$search_results}}</h1>
      
        <a href="/create">投稿</a>
        <a href="/">検索</a>

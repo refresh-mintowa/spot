@@ -64,9 +64,9 @@ class PostController extends Controller
         // $answer = $category;
      
          
-        // $search_result = $request->title.'の検索結果'.count($post).'件';
+        $search_result = $request->search['title'].$request->search['category'].$request->search['pref_id'].'の検索結果'.count($answer).'件';
         
-        return view('results')->with(['posts'=>$answer]);
+        return view('results')->with(['posts'=>$answer,'search_results'=>$search_result]);
         
         // return view('results')->with(['posts'=>$post]);
         
