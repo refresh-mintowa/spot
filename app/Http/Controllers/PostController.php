@@ -34,19 +34,35 @@ class PostController extends Controller
     }
     public function search(Request $request,Post $post){
         // dd($request->input('search.title'));
+   
         
-      
+         $word = $request->input('search.title');
+         $category = $request->input('search.category');
+         $pref = $request->input('search.pref_id');
+       
+                  
+                  
+          if(!empty($category)){
+              $answer = $post->where('category','=',"{$request->search['category']}")->get();
+              
+               if(!empty($pref)){
+                    $answer = $post->where('category','=',"{$request->search['category']}")
+                    ->where('pref_id','=',"{$request->search['pref_id']}")->get();
+                          
+                     if(!empty($word)){
+                        $answer = $post->where('category','=',"{$request->search['category']}")
+                        ->where('pref_id','=',"{$request->search['pref_id']}")
+                            ->where('title','like',"%{$request->search['title']}%")
+                            ->orWhere('body','like',"%{$request->search['title']}%")->get();
+                       }
+                   }
+            }
+       
+        // dd($word);
+    
         
-        if($request->has('search.category')){
-          $category = $post->where('category','=',"{$request->search['category']}"); 
-            if($request->has('search.title')){
-                $keyword = $post->where('title','like',"%{$request->search['title']}%")
-                      ->orWhere('body','like',"%{$request->search['title']}%");  
-             }
-        }
-        
-        $answer = $category->get();
-        $answer = $keyword->get();
+        // $answer = $category;
+     
          
         // $search_result = $request->title.'の検索結果'.count($post).'件';
         

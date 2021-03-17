@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->string('category');
+            $table->integer('pref_id');
             $table->timestamps();
         });
     }

@@ -14,6 +14,7 @@
        <div>
            <h1>{{ $post->title }}</h1>
            <p>{{ $post->category }}</p>
+           <p>{{ $post->pref_id }}</p>
            <p>{{ $post->body }}</p>
        </div>
        <a href="/{{$post->id}}/edit">編集する</a>
