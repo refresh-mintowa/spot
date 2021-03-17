@@ -33,13 +33,24 @@ class PostController extends Controller
         return redirect('/'.$post->id);
     }
     public function search(Request $request,Post $post){
-        // dd($request->input());
+        // dd($request->input('search.title'));
         
-       $aa = $post->where('title','like',"%{$request->search['title']}%")
-                   ->orWhere('body','like',"%{$request->search['title']}%")->get();    
+      
+        
+        if($request->has('search.category')){
+          $category = $post->where('category','=',"{$request->search['category']}"); 
+            if($request->has('search.title')){
+                $keyword = $post->where('title','like',"%{$request->search['title']}%")
+                      ->orWhere('body','like',"%{$request->search['title']}%");  
+             }
+        }
+        
+        $answer = $category->get();
+        $answer = $keyword->get();
+         
         // $search_result = $request->title.'の検索結果'.count($post).'件';
         
-        return view('results')->with(['posts'=>$aa]);
+        return view('results')->with(['posts'=>$answer]);
         
         // return view('results')->with(['posts'=>$post]);
         
