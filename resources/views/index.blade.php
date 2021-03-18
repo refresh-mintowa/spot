@@ -15,10 +15,7 @@
        <a href="/list">検索</a>
        <form action="/search" method="POST">
            @csrf
-           <div>
-               <p>フリーワード</p>
-            　 <input type="text" name="search[title]">
-           </div>
+
             <div>
                   <P>カテゴリー</P>
                   <select name="search[category]">
@@ -80,6 +77,12 @@
                     <option value="47">沖縄県</option>
                 </select>
             </div>
+            
+            <div>
+               <p>フリーワード</p>
+            　 <input type="text" name="search[title]">
+           </div>
+           <p></p>
               
             <!--<textarea name="search[body]"></textarea>-->
            <input type="submit" value="検索">
