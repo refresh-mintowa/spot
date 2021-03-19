@@ -20,6 +20,7 @@ class PostController extends Controller
         return view('create');
     }
     public function save(Request $request,Post $post){
+        
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/'.$post->id) ;
@@ -37,20 +38,22 @@ class PostController extends Controller
    
         
          $word = $request->input('search.title');
-         $category = $request->input('search.category');
+         $category = $request->input('search.category_id');
          $pref = $request->input('search.pref_id');
        
                   
                   
           if(!empty($category)){
-              $answer = $post->where('category','=',"{$request->search['category']}")->get();
+            //   $answer = Post::first()->category();
+            //   dd($post->where('category_id','=',"{$request->search['category_id']}")->get());
+             $answer = Post::where('category_id','=',"{$request->search['category_id']}")->with('category')->get();
               
                if(!empty($pref)){
-                    $answer = $post->where('category','=',"{$request->search['category']}")
+                    $answer = $post->where('category_id','=',"{$request->search['category_id']}")
                     ->where('pref_id','=',"{$request->search['pref_id']}")->get();
                           
                      if(!empty($word)){
-                        $answer = $post->where('category','=',"{$request->search['category']}")
+                        $answer = $post->where('category_id','=',"{$request->search['category_id']}")
                         ->where('pref_id','=',"{$request->search['pref_id']}")
                             ->where('title','like',"%{$request->search['title']}%")
                             ->orWhere('body','like',"%{$request->search['title']}%")->get();
@@ -64,7 +67,7 @@ class PostController extends Controller
         // $answer = $category;
      
          
-        $search_result = $request->search['title'].$request->search['category'].$request->search['pref_id'].'の検索結果'.count($answer).'件';
+        $search_result = $request->search['title'].$request->search['category_id'].$request->search['pref_id'].'の検索結果'.count($answer).'件';
         
         return view('results')->with(['posts'=>$answer,'search_results'=>$search_result]);
         

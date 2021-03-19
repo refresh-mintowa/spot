@@ -17,7 +17,7 @@
        @foreach($posts as $post)
        <div>
            <h1><a href="/{{$post->id}}">{{ $post->title }}</a></h1>
-           <p>{{ $post->category }}</p>
+           <p>{{ $post->category->category }}</p>
             <p>{{ $post->pref_id }}</p>
            <p>{{ $post->body }}</p>
        </div>

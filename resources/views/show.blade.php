@@ -13,7 +13,7 @@
        <h1>spots</h1>
        <div>
            <h1>{{ $post->title }}</h1>
-           <p>{{ $post->category }}</p>
+           <p>{{ $post->category_id }}</p>
            <p>{{ $post->pref_id }}</p>
            <p>{{ $post->body }}</p>
        </div>

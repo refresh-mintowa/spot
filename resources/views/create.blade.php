@@ -20,10 +20,10 @@
               </div>
                <div>
                   <P>カテゴリー</P>
-                  <select name="post[category]">
-                      <option value="food">食事</option>
-                      <option value="tourism">観光</option>
-                      <option value="stay">宿泊</option>
+                  <select name="post[category_id]">
+                      <option value="1">食事</option>
+                      <option value="2">観光</option>
+                      <option value="3">宿泊</option>
                   </select>
               </div>
               <div>
