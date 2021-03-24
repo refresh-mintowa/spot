@@ -80,6 +80,10 @@
                 </select>
                </div>
                <div>
+                  <P>画像</P>
+                  <input id="image" type="file" name="post[image]">
+              </div>
+               <div>
                   <P>内容</P>
                   <textarea name="post[body]"></textarea>
               </div>

@@ -15,6 +15,7 @@
            <h1>{{ $post->title }}</h1>
            <p>{{ $post->category_id }}</p>
            <p>{{ $post->pref_id }}</p>
+           <img src="{{ Storage::url($post->image)}}" width="100px">
            <p>{{ $post->body }}</p>
        </div>
        <a href="/{{$post->id}}/edit">編集する</a>

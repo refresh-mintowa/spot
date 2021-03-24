@@ -20,8 +20,15 @@ class PostController extends Controller
         return view('create');
     }
     public function save(Request $request,Post $post){
-        
         $input = $request['post'];
+        //  dd($file = $request->file('image'));
+        // //  $filename = $file->getClientOriginalName();
+        //     dd( $filename = request()->file('post[image]')->getClientOriginalName());
+        // if(request('post.image')){
+        //     // $filename = request()->file('post.image')->getClientOriginalName();
+        //     // $input['image'] = request('image')->storeAs('public/images',$filename);
+        // }
+        
         $post->fill($input)->save();
         return redirect('/'.$post->id) ;
     }
@@ -34,85 +41,94 @@ class PostController extends Controller
         return redirect('/'.$post->id);
     }
     public function search(Request $request,Post $post){
-        // dd($request->input('search.title'));
    
+        $category_name = array('','食事','観光','宿泊');
+        $category_id = $request->input('search.category_id');
+        $category = $category_name[$category_id];
         
-         $word = $request->input('search.title');
-         $category = $request->input('search.category_id');
-         $pref = $request->input('search.pref_id');
+        $pref_name = array(
+            '',
+            '北海道',
+            '青森県',
+            '岩手県',
+            '宮城県',
+            '秋田県',
+            '山形県',
+            '福島県',
+            '茨城県',
+            '栃木県',
+            '群馬県',
+            '埼玉県',
+            '千葉県',
+            '東京都',
+            '神奈川県',
+            '新潟県',
+            '富山県',
+            '石川県',
+            '福井県',
+            '山梨県',
+            '長野県',
+            '岐阜県',
+            '静岡県',
+            '愛知県',
+            '三重県',
+            '滋賀県',
+            '京都府',
+            '大阪府',
+            '兵庫県',
+            '奈良県',
+            '和歌山県',
+            '鳥取県',
+            '島根県',
+            '岡山県',
+            '広島県',
+            '山口県',
+            '徳島県',
+            '香川県',
+            '愛媛県',
+            '高知県',
+            '福岡県',
+            '佐賀県',
+            '長崎県',
+            '熊本県',
+            '大分県',
+            '宮崎県',
+            '鹿児島県',
+            '沖縄県'
+            );
+        $pref_id = $request->input('search.pref_id');
+        if(!empty($pref_id)){
+        $pref = $pref_name[$pref_id];
+            
+        }else{
+            $pref = '';
+        }
+        
+        
+        $word = $request->input('search.title');
+         
        
-                  
-                  
           if(!empty($category)){
-            //   $answer = Post::first()->category();
-            //   dd($post->where('category_id','=',"{$request->search['category_id']}")->get());
-             $answer = Post::where('category_id','=',"{$request->search['category_id']}")->with('category')->get();
+            $search_result = Post::where('category_id','=',"{$request->search['category_id']}")->with('category')->get();
               
-               if(!empty($pref)){
-                    $answer = $post->where('category_id','=',"{$request->search['category_id']}")
+               if(!empty($pref_id)){
+                    $search_result = $post->where('category_id','=',"{$request->search['category_id']}")
                     ->where('pref_id','=',"{$request->search['pref_id']}")->get();
                           
                      if(!empty($word)){
-                        $answer = $post->where('category_id','=',"{$request->search['category_id']}")
+                        $search_result = $post->where('category_id','=',"{$request->search['category_id']}")
                         ->where('pref_id','=',"{$request->search['pref_id']}")
                             ->where('title','like',"%{$request->search['title']}%")
                             ->orWhere('body','like',"%{$request->search['title']}%")->get();
                        }
                    }
             }
-       
-        // dd($word);
-    
-        
-        // $answer = $category;
-     
-         
-        $search_result = $request->search['title'].$request->search['category_id'].$request->search['pref_id'].'の検索結果'.count($answer).'件';
-        
-        return view('results')->with(['posts'=>$answer,'search_results'=>$search_result]);
-        
-        // return view('results')->with(['posts'=>$post]);
-        
-        // $title = Request::get('title');
-        
-        // if($title){
-        // $item = Post::where('title', 'LIKE', "%$title%")->simplePaginate(2);
             
-        // }else{
-        //      $item = Post::select('*')->simplePaginate(2);
-        //      $title='全件表示';
-        // }
+        $search_result_count = count($search_result);
         
-        // return view('results',['items' => $item])->with('title',$title);
+        return view('results')->with(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word]);
         
-        
-        // $query = User::query();
-        
-        // $search_name = $request->input('title');
-        //   $query = User::query()
-        //     ->when($request->has('title'), function($query) use ($search_name) {
-        //         $query->where('title', 'like', '%' . $search_name . '%');
-        //     })
-            
-        //      return view('results');
-        
-        
-        // $search_name = $request->input('title');
-        // $query = User::query();
-        
-        // if(!empty($search_name)){
-        //     $query->where('title','like','%'.$search_name.'%');
-        // }
-        
-        // $books = $query->get();
-        
-        // return view('results',compact('books','search_name'));
-        // if($request->has('title' && $search_name != '')){
-        //     $query->where('title','like','%'.$search_name.'%')->get();
-        // }
-        // $data = $query->pagenate(10);
-        
-        // return view('results',['data'=>$data]);
+  
     }
     // public function results(Post $post){
     //     return view('results',['data'=>$data]);
