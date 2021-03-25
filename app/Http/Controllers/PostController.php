@@ -20,14 +20,22 @@ class PostController extends Controller
         return view('create');
     }
     public function save(Request $request,Post $post){
-        $input = $request['post'];
-        //  dd($file = $request->file('image'));
-        // //  $filename = $file->getClientOriginalName();
-        //     dd( $filename = request()->file('post[image]')->getClientOriginalName());
-        // if(request('post.image')){
-        //     // $filename = request()->file('post.image')->getClientOriginalName();
-        //     // $input['image'] = request('image')->storeAs('public/images',$filename);
-        // }
+       $input = $request['post'];
+            // $this->validata($request,[
+            //     'file' => [
+            //                 'file',
+            //                 'image',
+            //                 'mimes:jpeg,png',
+            //                 ]
+            //     ]);
+            // dd($request->file('post.image'));
+            if($request->file('post.image')->isValid([])){
+                
+                $filename = request()->file('post.image')->getClientOriginalName();
+                $input['image'] = request('post.image')->storeAs('public',$filename);
+              
+            }
+        
         
         $post->fill($input)->save();
         return redirect('/'.$post->id) ;

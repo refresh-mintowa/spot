@@ -12,7 +12,7 @@
     <body>
        <h1>spots</h1>
        <div>
-          <form action="/save" method="POST">
+          <form action="/save" method="POST" enctype="multipart/form-data">
               @csrf
               <div>
                   <P>タイトル</P>
