@@ -21,14 +21,14 @@ class PostController extends Controller
     }
     public function save(Request $request,Post $post){
        $input = $request['post'];
-            // $this->validata($request,[
-            //     'file' => [
-            //                 'file',
-            //                 'image',
-            //                 'mimes:jpeg,png',
-            //                 ]
-            //     ]);
-            // dd($request->file('post.image'));
+            $this->validata($request,[
+                'file' => [
+                            'file',
+                            'image',
+                            'mimes:jpeg,png',
+                            ]
+                ]);
+    
             if($request->file('post.image')->isValid([])){
                 
                 $filename = request()->file('post.image')->getClientOriginalName();

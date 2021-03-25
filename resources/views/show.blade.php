@@ -5,20 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>穴場サーチ</title>
-
+         <link href="{{ asset('/css/app.css')}}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
-       <h1>spots</h1>
-       <div>
-           <h1>{{ $post->title }}</h1>
-           <p>{{ $post->category_id }}</p>
-           <p>{{ $post->pref_id }}</p>
-           <img src="{{ Storage::url($post->image)}}" width="100px">
-           <p>{{ $post->body }}</p>
-       </div>
-       <a href="/{{$post->id}}/edit">編集する</a>
-       <a href="/list">戻る</a>
+        <div class="page-wrapper">
+            <div class="show-post__wrapper">
+                
+                <div class="page-head">
+                  <h1>{{ $post->title }}</h1>
+                </div>
+               <div>
+                 
+                   <img src="{{ Storage::url($post->image)}}" width="500px">
+                   <p>{{ $post->category_id }}</p>
+                   <p>{{ $post->pref_id }}</p>
+                   <p>{{ $post->body }}</p>
+               </div>
+               <div class="page-flex">
+                   <div class="btn">
+                        <a href="/{{$post->id}}/edit">編集する</a>
+                   </div>
+                   <div class="btn">
+                       <a href="/list">戻る</a>
+                   </div>
+               </div>
+              
+               
+            </div>
+        </div>
     </body>
 </html>
