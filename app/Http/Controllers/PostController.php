@@ -141,5 +141,6 @@ class PostController extends Controller
     // public function results(Post $post){
     //     return view('results',['data'=>$data]);
     // }
+    // dd(auth()->user()->name);
 }
 

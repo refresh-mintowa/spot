@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('pref_id');
             $table->text('image')->nullable();
+            $table->integer('likes_count')->default(0);
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });

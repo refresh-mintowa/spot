@@ -11,14 +11,21 @@
 |
 */
 
-Route::get('/', 'PostController@index');
-Route::get('/list', 'PostController@list');
-Route::get('/create', 'PostController@create');
-Route::get('/{post}', 'PostController@show');
-Route::get('/{post}/edit', 'PostController@edit');
-Route::put('/{post}', 'PostController@update');
+Auth::routes();
 
-Route::post('/save', 'PostController@save');
+Route::middleware('auth')->group(function(){
+    
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'PostController@index');
+    Route::get('/list', 'PostController@list');
+    Route::get('/create', 'PostController@create');
+    Route::get('/{post}', 'PostController@show');
+    Route::get('/{post}/edit', 'PostController@edit');
+    Route::put('/{post}', 'PostController@update');
+    
+    Route::post('/save', 'PostController@save');
+    
+    Route::post('/search', 'PostController@search');
+    Route::get('/results', 'PostController@results');
+});
 
-Route::post('/search', 'PostController@search');
-Route::get('/results', 'PostController@results');

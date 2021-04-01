@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>穴場サーチ</title>
-       <link href="{{ asset('/css/app.css')}}" rel="stylesheet">
+       <link href="{{ asset('/css/spot.css')}}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
