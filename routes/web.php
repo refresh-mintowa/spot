@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function(){
     
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/', 'PostController@index');
-    Route::get('/list', 'PostController@list');
+    Route::get('/list', 'PostController@list')->name('list');
     Route::get('/create', 'PostController@create');
     Route::get('/{post}', 'PostController@show');
     Route::get('/{post}/edit', 'PostController@edit');
@@ -27,5 +27,8 @@ Route::middleware('auth')->group(function(){
     
     Route::post('/search', 'PostController@search');
     Route::get('/results', 'PostController@results');
+    
+    Route::post('/{post}/favorites', 'FavoriteController@store')->name('favorites');
+    Route::post('/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
 });
 

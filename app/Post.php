@@ -14,4 +14,9 @@ class Post extends Model
      public function Likes(){
         return $this->hasMany('App\Like');
     }
+    
+    public function users()
+    {
+        return $this->belongsToMany('App\User')->withTimestamps();
+    }
 }

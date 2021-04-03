@@ -21,13 +21,13 @@ class PostController extends Controller
     }
     public function save(Request $request,Post $post){
        $input = $request['post'];
-            $this->validata($request,[
-                'file' => [
-                            'file',
-                            'image',
-                            'mimes:jpeg,png',
-                            ]
-                ]);
+            // $this->validata($request,[
+            //     'file' => [
+            //                 'file',
+            //                 'image',
+            //                 'mimes:jpeg,png',
+            //                 ]
+            //     ]);
     
             if($request->file('post.image')->isValid([])){
                 
@@ -134,7 +134,7 @@ class PostController extends Controller
             
         $search_result_count = count($search_result);
         
-        return view('results')->with(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word]);
+        return view('results')->with(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
         
   
     }
