@@ -49950,6 +49950,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/map.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/map.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/spot.scss":
 /*!**********************************!*\
   !*** ./resources/sass/spot.scss ***!
@@ -49962,15 +49973,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/spot.scss ***!
-  \****************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/spot.scss ./resources/sass/map.scss ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/ec2-user/environment/spot/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/ec2-user/environment/spot/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/spot/resources/sass/spot.scss */"./resources/sass/spot.scss");
+__webpack_require__(/*! /home/ec2-user/environment/spot/resources/sass/spot.scss */"./resources/sass/spot.scss");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/spot/resources/sass/map.scss */"./resources/sass/map.scss");
 
 
 /***/ })
