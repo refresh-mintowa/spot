@@ -37,8 +37,8 @@ class FavoriteController extends Controller
     public function store(Post $post)
     {
         $post->users()->attach(Auth::id());
-
-        return redirect()->route('list');
+      
+         return redirect('/like');
     }
 
     /**
@@ -84,7 +84,6 @@ class FavoriteController extends Controller
     public function destroy(Post $post)
     {
         $post->users()->detach(Auth::id());
-
-       return redirect()->route('list');
+        return redirect('/like');
     }
 }

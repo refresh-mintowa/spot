@@ -49,7 +49,7 @@ class PostController extends Controller
         return redirect('/'.$post->id);
     }
     public function search(Request $request,Post $post){
-   
+        
         $category_name = array('','食事','観光','宿泊');
         $category_id = $request->input('search.category_id');
         $category = $category_name[$category_id];
@@ -130,11 +130,13 @@ class PostController extends Controller
                             ->orWhere('body','like',"%{$request->search['title']}%")->get();
                        }
                    }
+            $search_result_count = count($search_result);
             }
             
-        $search_result_count = count($search_result);
+            \Session::put(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
+            
         
-        return view('results')->with(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
+         return view('results')->with(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
         
   
     }
