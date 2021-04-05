@@ -122,6 +122,10 @@ $(function () {
       }) //通信が成功したとき
       .done(function (res) {
         console.log(res);
+        $.each(res, function (index, value) {
+          html = "<h1><a href=\"/".concat(id, "\">").concat(value.title, "</a></h1>\n                                    <p>").concat(value.body, "</p>");
+          $(".pref_result").append(html);
+        });
       }) //通信が失敗したとき
       .fail(function (error) {
         console.log(error.statusText);

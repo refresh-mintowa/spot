@@ -27,7 +27,12 @@ $(function(){
                       })
                       //通信が成功したとき
                       .done((res)=>{
-                        console.log(res)
+                          console.log(res)
+                        $.each(res,function(index,value){
+                           html = `<h1><a href="/${id}">${value.title}</a></h1>
+                                    <p>${value.body}</p>`; 
+                           $(".pref_result").append(html);
+                        });
                       })
                       //通信が失敗したとき
                       .fail((error)=>{
