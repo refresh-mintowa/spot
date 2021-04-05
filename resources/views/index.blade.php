@@ -99,6 +99,7 @@
                 </div>
             </div>
         </div>
+        <div class="pref_result"></div>
        <form action="/search" method="POST">
            @csrf
 

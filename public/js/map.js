@@ -116,12 +116,12 @@ $(function () {
       $.ajax({
         type: "get",
         //HTTP通信の種類
-        url: '/home',
+        url: '/pref/' + id,
         //通信したいURL
         dataType: 'json'
       }) //通信が成功したとき
       .done(function (res) {
-        console.log(id);
+        console.log(res);
       }) //通信が失敗したとき
       .fail(function (error) {
         console.log(error.statusText);

@@ -140,6 +140,12 @@ class PostController extends Controller
         
   
     }
+    
+    public function pref(Post $post,$id){
+        $pref = Post::where('pref_id','=',$id)->get();
+     
+        return response()->json($pref);
+    }
     // public function results(Post $post){
     //     return view('results',['data'=>$data]);
     // }

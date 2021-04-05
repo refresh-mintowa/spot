@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/save', 'PostController@save');
     
     Route::post('/search', 'PostController@search')->name('search');
+    Route::get('/pref/{id}', 'PostController@pref');
      
     // Route::get('/results', 'PostController@results')->name('results');
     

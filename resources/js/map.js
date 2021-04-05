@@ -22,12 +22,12 @@ $(function(){
                     //window.location.href = 'https://kinocolog.com/pref/' + id;
                     $.ajax({
                         type: "get", //HTTP通信の種類
-                        url:'/home', //通信したいURL
+                        url:'/pref/' + id, //通信したいURL
                         dataType: 'json'
                       })
                       //通信が成功したとき
                       .done((res)=>{
-                        console.log(id)
+                        console.log(res)
                       })
                       //通信が失敗したとき
                       .fail((error)=>{
