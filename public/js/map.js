@@ -121,9 +121,10 @@ $(function () {
         dataType: 'json'
       }) //通信が成功したとき
       .done(function (res) {
+        $(".pref_result").html('');
         console.log(res);
         $.each(res, function (index, value) {
-          html = "<h1><a href=\"/".concat(id, "\">").concat(value.title, "</a></h1>\n                                    <p>").concat(value.body, "</p>");
+          html = "<div class=\"result-item\">\n                                        <div></div>\n                                        <div class=\"result-content\">\n                                            <h1 class=\"result-title\"><a href=\"/".concat(id, "\">").concat(value.title, "</a></h1>\n                                            <p class=\"result-body\">").concat(value.body, "</p>\n                                        </div>\n                                    </div>");
           $(".pref_result").append(html);
         });
       }) //通信が失敗したとき

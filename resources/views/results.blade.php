@@ -11,16 +11,31 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
-       <h1>{{$category}},{{$pref}},{{$word}}の検索結果{{$search_result_count}}件</h1>
-     
-       <a href="/create">投稿</a>
-       <a href="/">検索</a>
+        <div class="page-wrapper">
+            <div class="page-head">
+                
+               <h1>{{$category}},{{$pref}},{{$word}}の検索結果{{$search_result_count}}件</h1>
+              <div class="page-flex">
+                   <div class="button">
+                       <a href="/create">投稿</a>
+                   </div>
+                   <div class="button">
+                       <a href="/list">検索</a>
+                   </div>
+               </div>
+            </div>
+        
        @foreach($search_results as $search_result)
-           <div>
-               <h1><a href="/{{$search_result->id}}">{{ $search_result->title }}</a></h1>
-               <p>{{ $search_result->category->category }}</p>
-                <p>{{ $pref }}</p>
-               <p>{{ $search_result->body }}</p>
+           <div class="result-item">
+                <div class="result-img">
+                    <img src="{{ Storage::url($search_result->image)}}" width="250px" height="250px">
+               </div>
+               <div class="result-content">
+                   <h1 class="result-title"><a href="/{{$search_result->id}}">{{ $search_result->title }}</a></h1>
+                   <p class="result-category">カテゴリー：{{ $search_result->category->category }}</p>
+                    <p class="result-pref">{{ $pref }}</p>
+                   <p class="result-body">{{ $search_result->body }}</p>
+               </div>
            </div>
            <div class="row justify-content-center">
                @if($search_result->users()->where('user_id', Auth::id())->exists())
@@ -43,6 +58,9 @@
                 <p>いいね数：{{ $search_result->users()->count() }}</p>
             </div>
        @endforeach
-       <a href="/">戻る</a>
+       <div class="button">
+           <a href="/">戻る</a>
+       </div>
+       </div>
     </body>
 </html>

@@ -24,10 +24,10 @@
                    <p>{{ $post->body }}</p>
                </div>
                <div class="page-flex">
-                   <div class="btn">
+                   <div class="button">
                         <a href="/{{$post->id}}/edit">編集する</a>
                    </div>
-                   <div class="btn">
+                   <div class="button">
                        <a href="/list">戻る</a>
                    </div>
                </div>

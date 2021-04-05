@@ -27,10 +27,16 @@ $(function(){
                       })
                       //通信が成功したとき
                       .done((res)=>{
+                          $(".pref_result").html('');
                           console.log(res)
                         $.each(res,function(index,value){
-                           html = `<h1><a href="/${id}">${value.title}</a></h1>
-                                    <p>${value.body}</p>`; 
+                           html = `<div class="result-item">
+                                        <div></div>
+                                        <div class="result-content">
+                                            <h1 class="result-title"><a href="/${id}">${value.title}</a></h1>
+                                            <p class="result-body">${value.body}</p>
+                                        </div>
+                                    </div>`; 
                            $(".pref_result").append(html);
                         });
                       })
