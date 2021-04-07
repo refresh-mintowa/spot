@@ -32,8 +32,8 @@ $(function(){
                         $.each(res,function(index,value){
                            html = `<div class="result-item">
                                         <div></div>
-                                        <div class="result-content">
-                                            <h1 class="result-title"><a href="/${id}">${value.title}</a></h1>
+                                        <div class="home-result-content">
+                                            <h1 class="home-result-title"><a href="/${id}">${value.title}</a></h1>
                                             <p class="result-body">${value.body}</p>
                                         </div>
                                     </div>`; 

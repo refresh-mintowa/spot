@@ -124,7 +124,7 @@ $(function () {
         $(".pref_result").html('');
         console.log(res);
         $.each(res, function (index, value) {
-          html = "<div class=\"result-item\">\n                                        <div></div>\n                                        <div class=\"result-content\">\n                                            <h1 class=\"result-title\"><a href=\"/".concat(id, "\">").concat(value.title, "</a></h1>\n                                            <p class=\"result-body\">").concat(value.body, "</p>\n                                        </div>\n                                    </div>");
+          html = "<div class=\"result-item\">\n                                        <div></div>\n                                        <div class=\"home-result-content\">\n                                            <h1 class=\"home-result-title\"><a href=\"/".concat(id, "\">").concat(value.title, "</a></h1>\n                                            <p class=\"result-body\">").concat(value.body, "</p>\n                                        </div>\n                                    </div>");
           $(".pref_result").append(html);
         });
       }) //通信が失敗したとき

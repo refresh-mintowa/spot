@@ -5,11 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>穴場サーチ</title>
+         <link href="{{ asset('/css/app.css')}}" rel="stylesheet">
          <link href="{{ asset('/css/spot.css')}}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
+        <header>
+            <div class="header-inner page-flex">
+                <h1>穴場サーチャー</h1>
+                <div>
+                     <ul class="header-list">
+                        <li><a href="/">検索</a></li>
+                        <li><a href="/create">投稿</a></li>
+                        <li><a href="/login">ログイン</a></li>
+                        <li><a href="/register">新規登録</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
         <div class="page-wrapper">
             <div class="page-head">
                <h1>投稿</h1>
@@ -110,7 +124,7 @@
               </form>
              
            </div>
-           <div class="btn">
+           <div class="button">
                <a href="/">戻る</a>
            </div>
         </div>

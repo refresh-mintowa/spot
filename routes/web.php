@@ -13,10 +13,13 @@
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'PostController@index');
+Route::post('/search', 'PostController@search')->name('search');
+
+
 Route::middleware('auth')->group(function(){
     
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/', 'PostController@index');
     Route::get('/list', 'PostController@list')->name('list');
     Route::get('/create', 'PostController@create');
     Route::get('/like', function(){
@@ -30,18 +33,15 @@ Route::middleware('auth')->group(function(){
          
          return view('results')->with(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
     });
-    Route::get('/{post}', 'PostController@show');
+   
     Route::get('/{post}/edit', 'PostController@edit');
     Route::put('/{post}', 'PostController@update');
     
     Route::post('/save', 'PostController@save');
     
-    Route::post('/search', 'PostController@search')->name('search');
-    Route::get('/pref/{id}', 'PostController@pref');
-     
-    // Route::get('/results', 'PostController@results')->name('results');
-    
     Route::post('/{post}/favorites', 'FavoriteController@store')->name('favorites');
     Route::post('/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
 });
 
+Route::get('/{post}', 'PostController@show');
+Route::get('/pref/{id}', 'PostController@pref');
