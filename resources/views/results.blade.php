@@ -40,9 +40,11 @@
         
        @foreach($search_results as $search_result)
            <div class="result-item">
+               @if(!empty($search_result->image))
                 <div class="result-img">
                     <img src="{{ Storage::url($search_result->image)}}" width="250px" height="250px">
                </div>
+               @endif
                <div class="result-content">
                    <h1 class="result-title"><a href="/{{$search_result->id}}">{{ $search_result->title }}</a></h1>
                    <p class="result-category">カテゴリー：{{ $search_result->category->category }}</p>

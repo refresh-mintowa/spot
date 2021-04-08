@@ -29,12 +29,13 @@
                <div>
                  
                    <img src="{{ Storage::url($post->image)}}" width="500px">
-                   <p>{{ $post->category_id }}</p>
+                   <p>{{ $post->category->category }}</p>
                    <p>{{ $post->pref_id }}</p>
                    <p>{{ $post->body }}</p>
                </div>
                <div class="page-flex">
-                   @if(Auth::id() === 1)
+                
+                   @if(Auth::id() === $post->user->id)
                    <div class="button">
                         <a href="/{{$post->id}}/edit">編集する</a>
                    </div>

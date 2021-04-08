@@ -36,7 +36,7 @@ class PostController extends Controller
               
             }
         
-        
+        $input['user_id'] = auth()->user()->id;
         $post->fill($input)->save();
         return redirect('/'.$post->id) ;
     }

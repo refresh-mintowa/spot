@@ -16,14 +16,16 @@ class PostsTableSeeder extends Seeder
             'title'=> 'タイトルが入ります。',
             'body'=> 'テキストテキスとテキスト',
             'category_id'=>1,
-            'pref_id'=>2
+            'pref_id'=>2,
+            'user_id'=>1
             ]);
             
          DB::table('posts')->insert([
             'title'=> 'タイトルが入ります2。',
             'body'=> 'テキストテキスとテキスト2',
             'category_id'=>2,
-            'pref_id'=>5
+            'pref_id'=>5,
+            'user_id'=>1
             ]);
     }
 }
