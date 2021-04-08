@@ -34,11 +34,13 @@
                    <p>{{ $post->body }}</p>
                </div>
                <div class="page-flex">
+                   @if(Auth::id() === 1)
                    <div class="button">
                         <a href="/{{$post->id}}/edit">編集する</a>
                    </div>
+                   @endif
                    <div class="button">
-                       <a href="/">戻る</a>
+                       <a href="javascript:history.back()">戻る</a>
                    </div>
                </div>
               
