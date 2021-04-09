@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Pref;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -116,25 +117,22 @@ class PostController extends Controller
         
         $word = $request->input('search.title');
         $category = Category::where('id',$request->input('search.category_id'))->get();
-        $pref = $request->input('search.pref_id');
-       
+        $pref = Pref::where('id',$request->input('search.pref_id'))->get();
+        $query = Post::query();
           if(!empty($category)){
-            $search_result = Post::where('category_id','=',"{$request->search['category_id']}")->with('category')->get();
-              
-               if(!empty($pref_id)){
-                    $search_result = $post->where('category_id','=',"{$request->search['category_id']}")
-                    ->where('pref_id','=',"{$request->search['pref_id']}")->get();
-                          
-                     if(!empty($word)){
-                        $search_result = $post->where('category_id','=',"{$request->search['category_id']}")
-                        ->where('pref_id','=',"{$request->search['pref_id']}")
-                            ->where('title','like',"%{$request->search['title']}%")
-                            ->orWhere('body','like',"%{$request->search['title']}%")->get();
-                       }
-                   }
-            $search_result_count = count($search_result);
-            }
+            $query->where('category_id','=',"{$request->search['category_id']}");
             
+            }
+               if(!empty($pref)){
+                $query->where('pref_id','=',"{$request->search['pref_id']}");
+                          
+                   }
+                     if(!empty($word)){
+                        $query->where('title','like',"%{$request->search['title']}%")
+                            ->orWhere('body','like',"%{$request->search['title']}%");
+                       }
+            $search_result = $query->get();
+            $search_result_count = count($search_result);
             \Session::put(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
             
         

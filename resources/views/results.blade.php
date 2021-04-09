@@ -26,7 +26,7 @@
         </header>
         <div class="page-wrapper">
             <div class="page-head">
-
+            
                <h1>{{$category[0]->category}},{{$word}}の検索結果{{$search_result_count}}件</h1>
               <!--<div class="page-flex">-->
               <!--     <div class="button">-->
