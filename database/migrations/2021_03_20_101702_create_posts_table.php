@@ -19,11 +19,12 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->integer('category_id')->unsigned();
-            $table->integer('pref_id');
+            $table->BigInteger('pref_id')->unsigned();
             $table->text('image')->nullable();
             $table->integer('likes_count')->default(0);
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('pref_id')->references('id')->on('prefs');
             $table->timestamps();
         });
     }

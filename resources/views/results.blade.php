@@ -26,8 +26,8 @@
         </header>
         <div class="page-wrapper">
             <div class="page-head">
-                
-               <h1>{{$category}},{{$pref}},{{$word}}の検索結果{{$search_result_count}}件</h1>
+
+               <h1>{{$category[0]->category}},{{$word}}の検索結果{{$search_result_count}}件</h1>
               <!--<div class="page-flex">-->
               <!--     <div class="button">-->
               <!--         <a href="/create">投稿</a>-->
@@ -48,7 +48,7 @@
                <div class="result-content">
                    <h1 class="result-title"><a href="/{{$search_result->id}}">{{ $search_result->title }}</a></h1>
                    <p class="result-category">カテゴリー：{{ $search_result->category->category }}</p>
-                    <p class="result-pref">{{ $pref }}</p>
+                    <p class="result-pref">都道府県：{{ $search_result->pref->name }}</p>
                    <p class="result-body">{{ $search_result->body }}</p>
                    <div class="rowr">
                        @if($search_result->users()->where('user_id', Auth::id())->exists())
