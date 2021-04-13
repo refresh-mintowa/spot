@@ -19,7 +19,7 @@ Route::post('/search', 'PostController@search')->name('search');
 
 
 Route::middleware('auth')->group(function(){
-    
+    Route::get('/', 'PostController@index');
     Route::get('/list', 'PostController@list')->name('list');
     Route::get('/create', 'PostController@create');
     Route::get('/like', function(){

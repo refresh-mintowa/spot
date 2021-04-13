@@ -82,6 +82,10 @@ header {
   color: #F58C3F;
 }
 
+.home-result-content {
+  width: 100%;
+}
+
 .result-item {
   display: flex;
   background: #FAF8F0;

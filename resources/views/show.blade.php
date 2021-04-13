@@ -27,10 +27,11 @@
             <div class="show-post__wrapper">
                 <h1>{{ $post->title }}</h1>
                <div>
-                 
+                   @if(!empty($post->image)) 
                    <img src="{{ Storage::url($post->image)}}" width="500px">
+                   @endif
                    <p>{{ $post->category->category }}</p>
-                   <p>{{ $post->pref_id }}</p>
+                   <p>{{ $post->pref->name }}</p>
                    <p>{{ $post->body }}</p>
                </div>
                <div class="page-flex">
