@@ -30,7 +30,7 @@
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   穴場サーチ
+                    {{ config('app.name', '穴場サーチ') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -153,13 +153,13 @@
                             <option value="47">沖縄県</option>
                         </select>
                     </div>
-                    <div class="page-flex form-item">
-                          <P>順番</P>
-                          <select name="search[order_id]">
-                              <option value="1">最新順</option>
-                              <option value="2">人気順</option>
-                          </select>
-                     </div>
+                    <!--<div class="page-flex form-item">-->
+                    <!--      <P>順番</P>-->
+                    <!--      <select name="search[order_id]">-->
+                    <!--          <option value="1">最新順</option>-->
+                    <!--          <option value="2">人気順</option>-->
+                    <!--      </select>-->
+                    <!-- </div>-->
                     
                     
                     <div class="page-flex form-item">

@@ -6,6 +6,7 @@ use App\Post;
 use App\Category;
 use App\Pref;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -21,7 +22,7 @@ class PostController extends Controller
     public function create(Post $post){
         return view('create');
     }
-    public function save(Request $request,Post $post){
+    public function save(PostRequest $request,Post $post){
        $input = $request['post'];
             // $this->validata($request,[
             //     'file' => [
@@ -30,8 +31,12 @@ class PostController extends Controller
             //                 'mimes:jpeg,png',
             //                 ]
             //     ]);
-    
-            if($request->file('post.image')->isValid([])){
+            
+            // $validatedDate = $request->validate([
+            //     'post.title' => 'required|string|max:100',
+            //     'post.category_id'=>'required',
+            //     ]);
+            if(!empty($request->file('post.image'))){
                 
                 $filename = request()->file('post.image')->getClientOriginalName();
                 $input['image'] = request('post.image')->storeAs('public',$filename);
@@ -82,7 +87,7 @@ class PostController extends Controller
     
     public function pref(Post $post,$id){
         $pref = Post::where('pref_id','=',$id)->get();
-     
+        
         return response()->json($pref);
     }
     // public function results(Post $post){
