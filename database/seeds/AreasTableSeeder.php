@@ -18,9 +18,6 @@ class AreasTableSeeder extends Seeder
         DB::table('areas')->insert(['id' => 4,'name'=>'近畿']);
         DB::table('areas')->insert(['id' => 5,'name'=>'中国・四国']);
         DB::table('areas')->insert(['id' => 6,'name'=>'九州']);
-          DB::table('areas')->insert([
-            'id' => 7,
-            'name'=>'食事'
-            ]);
+        
     }
 }
