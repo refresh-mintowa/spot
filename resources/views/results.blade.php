@@ -42,7 +42,7 @@
            <div class="result-item">
                @if(!empty($search_result->image))
                 <div class="result-img">
-                    <img src="{{ Storage::url($search_result->image)}}" width="250px" height="250px">
+                    <img src="{{ $search_result->image}}" width="250px" height="250px">
                </div>
                @endif
                <div class="result-content">

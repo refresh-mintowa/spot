@@ -28,7 +28,7 @@
                 <h1>{{ $post->title }}</h1>
                <div>
                    @if(!empty($post->image)) 
-                   <img src="{{ Storage::url($post->image)}}" width="500px">
+                   <img src="{{ $post->image}}" width="500px">
                    @endif
                    <p>{{ $post->category->category }}</p>
                    <p>{{ $post->pref->name }}</p>
