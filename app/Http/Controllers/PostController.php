@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Area;
 use App\Post;
 use App\Category;
 use App\Pref;
@@ -10,8 +11,8 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-    public function index(Post $post){
-        return view('index');
+    public function index(Post $post,Area $area,Pref $pref){
+        return view('index')->with(['areas'=>$area->get(),'prefs'=>$pref->get()]);
     }
     public function list(Post $post){
         return view('list')->with(['posts'=>$post->get()]);
@@ -24,18 +25,7 @@ class PostController extends Controller
     }
     public function save(PostRequest $request,Post $post){
        $input = $request['post'];
-            // $this->validata($request,[
-            //     'file' => [
-            //                 'file',
-            //                 'image',
-            //                 'mimes:jpeg,png',
-            //                 ]
-            //     ]);
-            
-            // $validatedDate = $request->validate([
-            //     'post.title' => 'required|string|max:100',
-            //     'post.category_id'=>'required',
-            //     ]);
+ 
             if(!empty($request->file('post.image'))){
                 
                 $filename = request()->file('post.image')->getClientOriginalName();

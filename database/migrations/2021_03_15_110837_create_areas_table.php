@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrefsTable extends Migration
+class CreateAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreatePrefsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prefs', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->BigInteger('area_id')->unsigned();
             $table->timestamps();
-            
-            $table->foreign('area_id')->references('id')->on('areas');
         });
     }
 
@@ -30,6 +27,6 @@ class CreatePrefsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prefs');
+        Schema::dropIfExists('areas');
     }
 }
