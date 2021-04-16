@@ -131,7 +131,7 @@
                </form>
       
                <div class="japan_map">
-                    <img src="{{ asset('storage/map.png')}}" alt="日本地図">
+                    <img src="{{ $mapImg }}" alt="日本地図">
                     @foreach($areas as $area)
                     <span class="area_btn area{{$area->id}}" data-area="{{$area->id}}">{{$area->name}}</span>
                     @endforeach

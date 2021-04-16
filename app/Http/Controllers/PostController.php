@@ -13,7 +13,8 @@ use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
     public function index(Post $post,Area $area,Pref $pref){
-        return view('index')->with(['areas'=>$area->get(),'prefs'=>$pref->get()]);
+        $mapImg = \Storage::disk('s3')->url('map.png');
+        return view('index')->with(['areas'=>$area->get(),'prefs'=>$pref->get(),'mapImg'=>$mapImg]);
     }
     public function list(Post $post){
         return view('list')->with(['posts'=>$post->get()]);
@@ -32,7 +33,8 @@ class PostController extends Controller
              
                 $filename = request()->file('post.image')->getClientOriginalName();
                  $disk = Storage::disk('s3');
-                $upload_info = $disk->putFile('/',$request->file('post.image'),'public');
+                $upload_info = $disk->putFileAs('/spot-img',$request->file('post.image'),$filename,'public');
+                // putFile('/',$request->file('post.image'),'public')
                 $path = Storage::disk('s3')->url($upload_info);
                 $input['image'] = $path;
                 // dd($publicimg);
