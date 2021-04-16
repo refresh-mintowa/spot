@@ -6,6 +6,7 @@ use App\Area;
 use App\Post;
 use App\Category;
 use App\Pref;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 
@@ -27,9 +28,11 @@ class PostController extends Controller
        $input = $request['post'];
  
             if(!empty($request->file('post.image'))){
-                
-                $filename = request()->file('post.image')->getClientOriginalName();
-                $input['image'] = request('post.image')->storeAs('public',$filename);
+                $disk = Storage::disk('s3');
+                $filename = $disk->putFile('/',$request->file('post.image'),'public');
+                dd($disk->url($filename));
+                // $filename = request()->file('post.image')->getClientOriginalName();
+                // $input['image'] = request('post.image')->storeAs('public',$filename);
               
             }
         
