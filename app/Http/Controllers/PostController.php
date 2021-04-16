@@ -32,8 +32,9 @@ class PostController extends Controller
              
                 $filename = request()->file('post.image')->getClientOriginalName();
                  $disk = Storage::disk('s3');
-                $publicimg = $disk->putFile('/',$filename,'public');
-                   dd($disk->url($publicimg));
+                $input['image'] = $disk->putFile('/',$request->file('post.image'),'public');
+                // dd($publicimg);
+                //   dd($disk->url($publicimg));
                 // $input['image'] = request('post.image')->storeAs('public',$filename);
               
             }
