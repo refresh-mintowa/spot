@@ -1,16 +1,5 @@
- @section('header')
+@section('header')
  <header>
-            <!--<div class="header-inner page-flex">-->
-            <!--    <h1>穴場サーチャー</h1>-->
-            <!--    <div>-->
-            <!--        <ul class="header-list">-->
-            <!--            <li><a href="/">検索</a></li>-->
-            <!--            <li><a href="/create">投稿</a></li>-->
-            <!--            <li><a href="/login">ログイン</a></li>-->
-            <!--            <li><a href="/register">新規登録</a></li>-->
-            <!--        </ul>-->
-            <!--    </div>-->
-            <!--</div>-->
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -68,4 +57,4 @@
             </div>
         </nav>
         </header>
-    @endsection
+@endsection
