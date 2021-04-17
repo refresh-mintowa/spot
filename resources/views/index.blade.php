@@ -74,5 +74,3 @@
        
       <script type="text/javascript" src="{{ asset('/js/map.js')}}"></script>
 @endsection
-
-
