@@ -8,8 +8,8 @@
                    @if(!empty($post->image)) 
                    <img src="{{ $post->image}}" width="500px">
                    @endif
-                   <p>{{ $post->category->category }}</p>
-                   <p>{{ $post->pref->name }}</p>
+                   <p>カテゴリー：{{ $post->category->category }}</p>
+                   <p>都道府県：{{ $post->pref->name }}</p>
                    <p>{{ $post->body }}</p>
                </div>
                <div class="page-flex">

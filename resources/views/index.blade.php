@@ -67,7 +67,11 @@
                 </div>
             </div>
             <div class="home-right">
-                <div class="pref_result"></div>
+                
+                <div class="pref_result">
+                    <h2>県の検索結果をここに表示</h2>
+                    <div class="pref_result_space"></div>
+                </div>
             </div>
            
         </div>

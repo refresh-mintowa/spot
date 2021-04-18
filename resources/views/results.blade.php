@@ -3,16 +3,17 @@
 @section('content')
         <div class="page-wrapper">
             <div class="page-head">
-            
-               <h1>{{$category[0]->category}},{{$word}}の検索結果{{$search_result_count}}件</h1>
-              <!--<div class="page-flex">-->
-              <!--     <div class="button">-->
-              <!--         <a href="/create">投稿</a>-->
-              <!--     </div>-->
-              <!--     <div class="button">-->
-              <!--         <a href="/">検索</a>-->
-              <!--     </div>-->
-              <!-- </div>-->
+
+               <h1>
+                   {{$category[0]->category}}
+                    
+                    @if(!empty($word))
+                    ,{{$word}}
+                    @endif
+                    
+                    の検索結果{{$search_result_count}}件
+                </h1>
+             
             </div>
         
        @foreach($search_results as $search_result)

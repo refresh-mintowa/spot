@@ -29,6 +29,7 @@ $(function(){
                       .done((res)=>{
                           $(".pref_result").html('');
                           console.log(res)
+                          
                         $.each(res,function(index,value){
                            html = `<div class="result-item">
                                         <div></div>
