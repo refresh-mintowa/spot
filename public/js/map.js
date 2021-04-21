@@ -109,10 +109,7 @@ $(function () {
 
   $('.pref_list [data-id]').click(function () {
     if ($(this).data('id')) {
-      var id = $(this).data('id'); //このidを使用して行いたい操作をしてください
-      //都道府県IDに応じて別ページに飛ばしたい場合はこんな風に書く↓
-      //window.location.href = 'https://kinocolog.com/pref/' + id;
-
+      var id = $(this).data('id');
       $.ajax({
         type: "get",
         //HTTP通信の種類

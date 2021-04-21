@@ -41,7 +41,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Post')->withTimestamps();
     }
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany('App\Post');
     }
 

@@ -13,31 +13,31 @@ class PrefsTableSeeder extends Seeder
     {
          DB::table('prefs')->insert([
            'id' => 1,
-            'area_id' => 1,
-            'name'=>'北海道'
+           'area_id' => 1,
+           'name'=>'北海道'
             ]);
             
          DB::table('prefs')->insert([
           'id' => 2,
           'area_id' => 1,
-            'name'=>'青森'
+          'name'=>'青森'
             ]);
             
             DB::table('prefs')->insert([
              'id' => 3,
              'area_id' => 1,
-            'name'=>'岩手県'
+             'name'=>'岩手県'
             ]);
              DB::table('prefs')->insert([
               'id' => 4,
               'area_id' => 1,
-            'name'=>'宮城県'
+              'name'=>'宮城県'
             ]);
             
              DB::table('prefs')->insert([
               'id' => 5,
               'area_id' => 1,
-            'name'=>'秋田県'
+              'name'=>'秋田県'
             ]);
             
              DB::table('prefs')->insert([

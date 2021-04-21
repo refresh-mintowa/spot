@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    //
     protected $fillable =['post_id'];
-    public function post(){
+    
+    public function post()
+    {
         return $this->belongsTo('App\Post');
     }
 }

@@ -19,7 +19,6 @@ Route::post('/search', 'PostController@search')->name('search');
 
 
 Route::middleware('auth')->group(function(){
-    Route::get('/list', 'PostController@list')->name('list');
     Route::get('/create', 'PostController@create');
     Route::get('/like', function(){
         
@@ -35,9 +34,7 @@ Route::middleware('auth')->group(function(){
    
     Route::get('/{post}/edit', 'PostController@edit');
     Route::put('/{post}', 'PostController@update');
-    
     Route::post('/save', 'PostController@save');
-    
     Route::post('/{post}/favorites', 'FavoriteController@store')->name('favorites');
     Route::post('/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
 });

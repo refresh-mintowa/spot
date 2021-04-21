@@ -17,30 +17,27 @@ $(function(){
             $('.pref_list [data-id]').click(function(){
                 if($(this).data('id')){
                     var id = $(this).data('id');
-                    //このidを使用して行いたい操作をしてください
-                    //都道府県IDに応じて別ページに飛ばしたい場合はこんな風に書く↓
-                    //window.location.href = 'https://kinocolog.com/pref/' + id;
                     $.ajax({
                         type: "get", //HTTP通信の種類
                         url:'/pref/' + id, //通信したいURL
                         dataType: 'json'
                       })
                       //通信が成功したとき
-                      .done((res)=>{
-                          $(".pref_result").html('');
-                          console.log(res)
+                    .done((res)=>{
+                        $(".pref_result").html('');
+                        console.log(res)
                           
                         $.each(res,function(index,value){
-                           html = `<div class="result-item">
+                            html = `<div class="result-item">
                                         <div></div>
                                         <div class="home-result-content">
                                             <h1 class="home-result-title"><a href="/${value.id}">${value.title}</a></h1>
                                             <p class="result-body">${value.body}</p>
                                         </div>
                                     </div>`; 
-                           $(".pref_result").append(html);
+                            $(".pref_result").append(html);
                         });
-                      })
+                    })
                       //通信が失敗したとき
                       .fail((error)=>{
                         console.log(error.statusText)

@@ -17,13 +17,13 @@ class CategoriesTableSeeder extends Seeder
             'category'=>'食事'
             ]);
             
-         DB::table('categories')->insert([
-             'id' => 2,
+        DB::table('categories')->insert([
+            'id' => 2,
             'category'=>'宿泊'
             ]);
             
-         DB::table('categories')->insert([
-             'id' => 3,
+        DB::table('categories')->insert([
+            'id' => 3,
             'category'=>'観光'
             ]);
     }
