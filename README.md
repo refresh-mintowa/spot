@@ -1,78 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 穴場サーチ
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<img width="1429" alt="home" src="https://user-images.githubusercontent.com/72063915/115534082-5fdbbc00-a2d2-11eb-832e-0fd62546cb7c.png">
 
-## About Laravel
+## 概要
+日本全国の穴場スポットを検索できる掲示板
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 使用言語
+HTML/CSS/JavaScript/PHP(7.3.27)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## フレームワーク
+SCSS/JQuery/Laravel(6.0)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## OS
+Linux(CentOS)
 
-## Learning Laravel
+## データベース
+MySQL
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## LOGIN情報
+ユーザー名　test<br>
+パスワード　testtest
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 機能
 
-## Laravel Sponsors
+- いいね機能<br>
+- ログイン機能<br>
+- 検索機能<br>
+- 投稿機能<br>
+- 編集機能<br>
+- 削除機能
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 今後追加予定の機能
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+- 人気順
+- いいねリスト
+- APIの実装
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 工夫した点
+- 複数の項目を同時に検索できるようにしたこと<br>
+一つ一つの項目での検索なら比較的簡単にできたが複数項目での検索には入子形式でやっていくのかや場合分けを全通りしていかなければいけないのかなど色々考えさせられた。<br>
 
-## Code of Conduct
+- 検索時の情報を保存するためにセッションを使ったこと<br>
+検索結果を一覧で表示したものにいいねを押すとURLが変わるため変わった時に検索時の情報を持たせてあげるためにはどのようにすればいいか考え調べた。<br>
+するとセッションを利用したやり方の記事が多かったためセッションを使ってみることにした。<br>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- 検索結果をシングルページで表示するためにajaxを使用したこと<br>
+シングルページで値を返すための方法を調べjson形式で返すなどJavaScriptの知識もつける必要があったため時間がかかった。<br>
 
-## Security Vulnerabilities
+## 苦労したこと<br>
+- 中間テーブルを使用し、いいね機能を実装したこと<br>
+リレーションを理解することが最も大変でした。その中でも多対多の理解には中間テーブルについての学習も必要で時間がかかった。<br>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Herokuでのデプロイ時の画像の表示<br>
+シンボリックリンクで画像を表示できるようにしていたが、herokuはシンボリックリンクに対応していないとのことでS3を使って実装するようにしたこと。
+ 
+テーブル設計
+![テーブル設計](https://user-images.githubusercontent.com/72063915/115521693-5ba9a180-a2c6-11eb-922f-e4f82f3658a3.png)
+## URL
+ https://immense-spire-64115.herokuapp.com/
+ 
+ ## 検索結果画面
+<img width="1430" alt="search" src="https://user-images.githubusercontent.com/72063915/115534100-636f4300-a2d2-11eb-84b5-1520375de665.png">
 
-## License
+## 投稿画面
+<img width="1418" alt="create" src="https://user-images.githubusercontent.com/72063915/115534070-5d796200-a2d2-11eb-96cc-ca856b87fec3.png">
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 記事詳細画面
+<img width="1436" alt="post" src="https://user-images.githubusercontent.com/72063915/115534090-610ce900-a2d2-11eb-9def-8187aadb13be.png">
+
+
+## 全体の動き
+https://user-images.githubusercontent.com/72063915/115532857-2787ae00-a2d1-11eb-9491-e907fa5fac16.mov
+
