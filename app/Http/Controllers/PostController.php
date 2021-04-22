@@ -30,16 +30,16 @@ class PostController extends Controller
     
     public function save(PostRequest $request,Post $post)
     {
-       $input = $request['post'];
+        $input = $request['post'];
  
-            if(!empty($request->file('post.image')))
-            {
-                $filename = request()->file('post.image')->getClientOriginalName();
-                 $disk = Storage::disk('s3');
-                $upload_info = $disk->putFileAs('/spot-img',$request->file('post.image'),$filename,'public');
-                $path = Storage::disk('s3')->url($upload_info);
-                $input['image'] = $path;
-            }
+        if(!empty($request->file('post.image')))
+        {
+            $filename = request()->file('post.image')->getClientOriginalName();
+            $disk = Storage::disk('s3');
+            $upload_info = $disk->putFileAs('/spot-img',$request->file('post.image'),$filename,'public');
+            $path = Storage::disk('s3')->url($upload_info);
+            $input['image'] = $path;
+        }
         
         $input['user_id'] = auth()->user()->id;
         $post->fill($input)->save();

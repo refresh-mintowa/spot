@@ -15,7 +15,8 @@ SCSS/JQuery/Laravel(6.0)
 Linux(CentOS)
 
 ## データベース
-MySQL
+MariaDB<br>
+S3 画像保存に使用
 
 ## LOGIN情報
 ユーザー名　test<br>
@@ -55,7 +56,7 @@ MySQL
 - Herokuでのデプロイ時の画像の表示<br>
 シンボリックリンクで画像を表示できるようにしていたが、herokuはシンボリックリンクに対応していないとのことでS3を使って実装するようにしたこと。
  
-テーブル設計
+## テーブル設計
 ![テーブル設計](https://user-images.githubusercontent.com/72063915/115521693-5ba9a180-a2c6-11eb-922f-e4f82f3658a3.png)
 ## URL
  https://immense-spire-64115.herokuapp.com/

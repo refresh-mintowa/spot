@@ -22,6 +22,8 @@
                     @endforeach
                 </select>
             </div>
+            
+            <!--ここに人気順を作成予定-->
             <!--<div class="page-flex form-item">-->
             <!--      <P>順番</P>-->
             <!--      <select name="search[order_id]">-->

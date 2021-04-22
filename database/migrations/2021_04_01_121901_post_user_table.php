@@ -18,10 +18,10 @@ class PostUserTable extends Migration
             $table->BigInteger('user_id')->unsigned();
             $table->integer('post_id')->unsigned();
             $table->timestamps();
-            
+            // リレーションの記述
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('post_id')->references('id')->on('posts');
-            
+            // ユニーク設定
             $table->unique(['user_id','post_id']);
         });
     }
