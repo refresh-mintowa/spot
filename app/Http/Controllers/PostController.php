@@ -60,31 +60,13 @@ class PostController extends Controller
     
     public function search(Request $request,Post $post)
     {
-        $word = $request->input('search.title');
-        $category = Category::where('id',$request->input('search.category_id'))->get();
-        $pref = Pref::where('id',$request->input('search.pref_id'))->get();
-        $query = Post::query();
+        // フォームから検索条件引き出し
+        $search_elements = $request->input('search');
         
-        if(!empty($category))
-        {
-            $query->where('category_id','=',"{$request->search['category_id']}");
-        }
-            
-        if(!empty($request['pref_id']))
-        {
-            $query->where('pref_id','=',"{$request->search['pref_id']}");
-        }
-            
-        if(!empty($word))
-        {
-            $query->where('title','like',"%{$request->search['title']}%")
-                ->orWhere('body','like',"%{$request->search['title']}%");
-        }
-            
-        $search_result = $query->get();
-        $search_result_count = count($search_result);
-        \Session::put(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
-        return view('results')->with(['search_results'=>$search_result,'search_result_count'=>$search_result_count,'category'=>$category,'pref'=>$pref,'word'=>$word,'post'=>$post]);
+        // postクラスにて定義したsearchメソッド
+        [$search_result,$category,$pref,$word] = $post->search($search_elements);
+        
+        return view('results')->with(['search_results'=>$search_result,'category'=>$category,'pref'=>$pref,'word'=>$word]);
     }
     
     public function pref(Post $post,$id)

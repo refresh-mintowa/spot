@@ -5,12 +5,16 @@
     <div class="page-head">
        <h1>
             {{$category[0]->category}}
-                    
+              
+            @if(!empty($pref))
+                ,{{$pref[0]->name}}
+            @endif
+            
             @if(!empty($word))
                 ,{{$word}}
             @endif
-                    
-            の検索結果{{$search_result_count}}件
+                
+            の検索結果{{$search_results->count()}}件
         </h1>
     </div>
         
