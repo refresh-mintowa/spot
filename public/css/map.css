@@ -129,5 +129,9 @@
   .japan_map .area_btn {
     font-size: 4vw;
   }
+
+  .japan_map img {
+    max-width: 100%;
+  }
 }
 

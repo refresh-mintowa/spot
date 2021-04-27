@@ -23,8 +23,8 @@
                         </dt>
                         <select name="post[category_id]">
                             <option value="1">食事</option>
-                            <option value="2">観光</option>
-                            <option value="3">宿泊</option>
+                            <option value="2">宿泊</option>
+                            <option value="3">観光</option>
                         </select>
                         <p class="title__error" style="color:red">{{ $errors->first('post.category_id') }}</p>
                     </div>

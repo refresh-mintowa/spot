@@ -107,9 +107,20 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 780px){
+    // .japan_map img{
+    // max-width: 400px;
+    // }
+}
 @media screen and (max-width: 480px){
     /* スマホユーザー向けにボタン文字サイズを調整 */
     .japan_map .area_btn{
         font-size: 4vw;
     }
+    .japan_map img{
+    max-width: 100%;
+    }
+    // .japan_map{
+    //     margin:0;
+    // }
 }

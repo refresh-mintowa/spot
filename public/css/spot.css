@@ -46,6 +46,18 @@ header {
   display: flex;
 }
 
+@media (max-width: 1024px) {
+  #home {
+    display: block;
+  }
+}
+
+@media (max-width: 766px) {
+  .home-left {
+    margin: auto;
+  }
+}
+
 .home-right {
   width: 500px;
   height: 80vh;
@@ -55,12 +67,34 @@ header {
   padding-left: 10px;
 }
 
+@media (max-width: 1024px) {
+  .home-right {
+    width: 95%;
+    padding: 0;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-head {
+    margin-left: 5%;
+  }
+}
+
 .button {
   background-color: #266;
   padding: 20px;
   margin: 0 20px;
   width: 200px;
   border-radius: 5px;
+}
+
+@media (max-width: 766px) {
+  .button {
+    width: 140px;
+    padding: 10px;
+    margin: 0 5px;
+  }
 }
 
 .button a {
@@ -94,13 +128,38 @@ header {
   border-radius: 20px;
 }
 
+@media (max-width: 1024px) {
+  .result-item {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 766px) {
+  .result-item {
+    display: block;
+  }
+}
+
 .result-content {
   margin-left: 20px;
+}
+
+@media (max-width: 766px) {
+  .result-img {
+    text-align: center;
+  }
 }
 
 .result-img img {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media (max-width: 766px) {
+  .result-img img {
+    height: 150px;
+  }
 }
 
 .result-title {
@@ -130,10 +189,23 @@ header {
   border-radius: 20px;
 }
 
+@media (max-width: 1024px) {
+  .create-form {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
 .post-item {
   padding: 20px 0;
   display: flex;
   border-bottom: #6c967a 1px solid;
+}
+
+@media (max-width: 766px) {
+  .post-item {
+    display: block;
+  }
 }
 
 dt {
@@ -145,6 +217,12 @@ dt {
 
 dd {
   width: calc(100% - 210px);
+}
+
+@media (max-width: 766px) {
+  dd {
+    width: 100%;
+  }
 }
 
 dd input {
@@ -211,6 +289,19 @@ dd textarea {
   border-radius: 20px;
 }
 
+@media (max-width: 1024px) {
+  .show-post__wrapper {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 766px) {
+  .show-post__wrapper img {
+    width: 100%;
+  }
+}
+
 .search_form {
   background: #FAF8F0;
   position: absolute;
@@ -220,9 +311,30 @@ dd textarea {
   border-radius: 10px;
 }
 
+@media (max-width: 1024px) {
+  .search_form {
+    left: 30px;
+  }
+}
+
+@media (max-width: 766px) {
+  .search_form {
+    top: -30px;
+    width: 250px;
+    left: 10px;
+  }
+}
+
 select,
 .freeword {
   padding: 0 10px;
+}
+
+@media (max-width: 766px) {
+  select,
+  .freeword {
+    width: 100px;
+  }
 }
 
 .form-item {

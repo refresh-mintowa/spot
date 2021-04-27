@@ -1,3 +1,18 @@
+// ブレークポイント
+$breakpoints: (
+	"sp": "(max-width: 766px)",
+	"tab-only": "(min-width: 767px) and (max-width: 1024px)",
+	"tab": "(max-width: 1024px)",
+	"pc": "(min-width: 1025px)",
+);
+
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
 body{
   background:#fff;
 }
@@ -34,11 +49,19 @@ header{
   position:relative;
   justify-content:space-between;
 }
-// .page-head{
-//   padding-top:30px;
-// }
+
 .page-flex {
   display: flex;
+}
+#home{
+  @include mq('tab'){
+     display:block;
+    }
+}
+.home-left{
+  @include mq('sp'){
+    margin:auto;
+  }
 }
 .home-right{
   width:500px;
@@ -46,14 +69,28 @@ header{
   overflow:auto;
   scroll-snap-type:y;
   padding-left:10px;
+  @include mq('tab'){
+    width:95%;
+    padding:0;
+    margin:auto;
+  }
 }
-
+.page-head{
+  @include mq('tab'){
+    margin-left:5%;
+  }
+}
 .button {
   background-color: #266;
   padding: 20px;
   margin: 0 20px;
   width: 200px;
   border-radius:5px;
+  @include mq('sp'){
+    width:140px;
+    padding:10px;
+    margin:0 5px;
+  }
 }
 
 .button a {
@@ -81,14 +118,27 @@ header{
   padding: 20px;
   margin: 20px 0;
   border-radius: 20px;
+  @include mq('tab'){
+    width:90%;
+    margin:20px auto;
+  }
+   @include mq('sp'){
+    display:block;
+  }
 }
 
 .result-content {
   margin-left: 20px;
 }
 .result-img{
+  @include mq('sp'){
+    text-align:center;
+  }
   img{
     object-fit:cover;
+    @include mq('sp'){
+      height:150px;
+    }
   }
 }
 .result-title {
@@ -115,12 +165,19 @@ header{
   padding: 20px;
   margin: 20px 0;
   border-radius: 20px;
+  @include mq('tab'){
+    width:90%;
+    margin:20px auto;
+  }
 }
 
 .post-item {
   padding: 20px 0;
   display: flex;
   border-bottom: #6c967a 1px solid;
+  @include mq('sp'){
+    display:block;
+  }
 }
 
 dt {
@@ -132,6 +189,9 @@ dt {
 
 dd {
   width: calc(100% - 210px);
+  @include mq('sp'){
+    width:100%;
+  }
 }
 
 dd input {
@@ -196,6 +256,15 @@ dd textarea {
   padding: 20px;
   margin: 20px 0;
   border-radius: 20px;
+  @include mq('tab'){
+    width:90%;
+    margin:20px auto;
+  }
+  img{
+    @include mq('sp'){
+      width:100%;
+    }
+  }
 }
 
 
@@ -206,10 +275,21 @@ dd textarea {
   width:400px;
   z-index:2;
   border-radius:10px;
+  @include mq('tab'){
+    left:30px;
+  }
+  @include mq('sp'){
+    top:-30px;
+    width:250px;
+    left:10px;
+  }
 }
 
 select,.freeword{
   padding:0 10px;
+  @include mq('sp'){
+    width:100px;
+  }
 }
 .form-item{
   margin:10px;
@@ -234,4 +314,11 @@ select,.freeword{
   background:#FAF8F0;
   height:400px;
   border-radius:10px;
+  @include mq('sp'){
+    
+  }
+}
+
+@media screen and (max-width: 480px){
+   
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="page-wrapper page-flex">
+<div class="page-wrapper page-flex" id="home">
     <div class="home-left">
         <form class="search_form" action="/search" method="POST">
             @csrf
@@ -9,8 +9,8 @@
                 <P>カテゴリー</P>
                 <select name="search[category_id]">
                     <option value="1">食事</option>
-                    <option value="2">観光</option>
-                    <option value="3">宿泊</option>
+                    <option value="2">宿泊</option>
+                    <option value="3">観光</option>
                 </select>
             </div>
             <div class="page-flex form-item">
