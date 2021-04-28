@@ -71,7 +71,7 @@ header{
   padding-left:10px;
   @include mq('tab'){
     width:95%;
-    padding:0px;
+    padding:0;
     margin:auto;
   }
 }
