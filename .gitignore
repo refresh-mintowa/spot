@@ -6,10 +6,6 @@
 .env
 .env.backup
 .env.heroku
-.editorconfig
-.env.example
-.gitattributes
-.styleci.yml
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
