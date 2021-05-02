@@ -38,6 +38,7 @@ $(function(){
                             $(".pref_result").append(html);
                         });
                     })
+                    
                       //通信が失敗したとき
                       .fail((error)=>{
                         console.log(error.statusText)

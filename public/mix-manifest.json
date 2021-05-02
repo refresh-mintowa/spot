@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/css/spot.css": "/css/spot.css",
     "/css/map.css": "/css/map.css",
-    "/js/map.js": "/js/map.js"
+    "/js/map.js": "/js/map.js",
+    "/js/map-api.js": "/js/map-api.js"
 }
