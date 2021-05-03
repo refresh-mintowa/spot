@@ -24,19 +24,28 @@
         </div>
     </div>
 </div>
-<p>住所や駅名、目印などで検索できます。</p>
-<form onsubmit="return false;">
-  <input type="text" value="株式会社Maromaro" id="address">
-  <button type="button" value="検索" id="map_button">検索</button>
-</form>
+
 <!-- 地図を表示させる要素 -->
-<div class="map_box01"><div id="map-canvas" style="width: 500px;height: 350px;"></div></div>
- 
-<p>マーカーのある位置の<br>
-緯度 <input type="text" id="lat" value=""><br>
-経度 <input type="text" id="lng" value=""><br>
-地図上をクリックするとマーカーを移動できます。</p>
+<div class="map_box01" id="gmap" style="width: 500px;height: 350px;"></div>
 
 <script type="text/javascript" src="{{ asset('/js/map-api.js')}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgAVWp_oSYmgMOAvEuC54V2jXxumGoVr8&callback=initMap" async defer></script>
+<script>
+    var gmap;
+function initMap(){
+  var target = document.getElementById('gmap');
+  var center = {lat:35.6585769,lng:139.7454506};
+  var opts = {
+    center: center,
+    zoom:14
+  }
+  
+  gmap = new google.maps.Map(target,opts);
+  
+    maker = new google.maps.Marker({
+    position: center,
+    map:gmap
+  });
+}
+</script>
 @endsection
