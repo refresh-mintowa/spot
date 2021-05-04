@@ -38,7 +38,7 @@ function initMap(){
   var opts = {
     center: center,
     zoom:14
-  }
+  };
   
   gmap = new google.maps.Map(target,opts);
   
@@ -46,6 +46,33 @@ function initMap(){
     position: center,
     map:gmap
   });
+  
+  
+ 
+   document.getElementById('map_button').onclick=function(){
+          var addressInput = document.getElementById('addressInput').value;
+          console.log('aaa');
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({address:addressInput},function(results,status){
+            if(status == google.maps.GeocoderStatus.OK){
+                center = results[0].geometry.location;
+                gmap = new google.maps.Map(target,{
+                    center:center,
+                    zoom:14
+                });
+                console.log(center);
+                marker = new google.maps.Marker({
+                position:center,
+                map:gmap
+                });
+            }else{
+                alert('失敗しました。'+ status);
+                return;
+            }
+          });
+      };
+  
 }
+
 </script>
 @endsection
