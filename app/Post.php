@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable =['title','body','category_id','pref_id','image','user_id'];
+    protected $fillable =['title','body','category_id','pref_id','image','user_id','lat','lng'];
     
     public function search($elements)
     {

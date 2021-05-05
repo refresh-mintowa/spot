@@ -25,6 +25,9 @@ a {
 h1 {
   color: #F58C3F;
   margin-bottom:0;
+  @include mq('sp'){
+     font-size: 1.3rem;
+    }
 }
 header{
   box-shadow: rgb(0 0 0 / 10%) 0px 0px 4px 0px;
@@ -314,9 +317,6 @@ select,.freeword{
   background:#FAF8F0;
   height:400px;
   border-radius:10px;
-  @include mq('sp'){
-    
-  }
 }
 
 @media screen and (max-width: 480px){
@@ -326,4 +326,12 @@ select,.freeword{
 #map{
   height: 400px;
   width: 600px;
+}
+
+.map_box01{
+  width:500px;
+  height:250px;
+  @include mq('sp'){
+    width:100%;
+  }
 }

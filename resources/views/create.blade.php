@@ -88,9 +88,24 @@
                     </div>
                     <div class="post-item">
                         <dt>
-                            <label class="contact-label contact-label-required" for="your-name">画像</label>
+                            <label class="contact-label" for="your-name">画像</label>
                         </dt>
                         <input id="image" type="file" name="post[image]">
+                    </div>
+                    <div class="post-item">
+                        <dt>
+                            <label class="contact-label" for="your-name">場所</label>
+                        </dt>
+                        <dd>
+                            <div class="page-flex">
+                                <input type="text" id="addressInput" value="" placeholder="東京タワー" style="width:250px;">
+                                <button type="button" value="検索" id="map_button" style="width:70px;">検索</button>
+                            </div>
+                            <!-- 地図を表示させる要素 -->
+                            <div class="map_box01" id="gmap"></div>
+                            <input type="hidden" id="lat" name="post[lat]">
+                            <input type="hidden" id="lng" name="post[lng]">
+                        </dd>
                     </div>
                     <div class="post-item">
                         <dt>
@@ -110,4 +125,56 @@
                 <a href="/">戻る</a>
             </div>
         </div>
+        
+<script type="text/javascript" src="{{ asset('/js/map-api.js')}}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
+<!---->
+
+<script>
+    var gmap;
+function initMap(){
+  var target = document.getElementById('gmap');
+  var center = {lat:35.6585769,lng:139.7454506};
+  var opts = {
+    center: center,
+    zoom:14
+  };
+  
+  gmap = new google.maps.Map(target,opts);
+  
+    maker = new google.maps.Marker({
+    position: center,
+    map:gmap
+  });
+  
+  
+ 
+   document.getElementById('map_button').onclick=function(){
+          var addressInput = document.getElementById('addressInput').value;
+          console.log('aaa');
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({address:addressInput},function(results,status){
+            if(status == google.maps.GeocoderStatus.OK){
+                var center = results[0].geometry.location;
+                gmap = new google.maps.Map(target,{
+                    center:center,
+                    zoom:14
+                });
+                console.log(center.lat());
+                document.getElementById('lat').value = center.lat(); 
+                document.getElementById('lng').value = center.lng(); 
+                marker = new google.maps.Marker({
+                position:center,
+                map:gmap
+                });
+            }else{
+                alert('失敗しました。'+ status);
+                return;
+            }
+          });
+      };
+  
+}
+
+</script>
 @endsection
