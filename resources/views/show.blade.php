@@ -46,7 +46,7 @@
       console.log(center);
       var opts = {
         center: center,
-        zoom:14
+        zoom:18
       };
       
       gmap = new google.maps.Map(target,opts);
