@@ -57,12 +57,6 @@ class PostController extends Controller
         $post->fill($input_update)->save();
         return redirect('/'.$post->id);
     }
-        public function up(Request $request,Post $post)
-    {
-        $input_update = $request['post'];
-        $post->fill($input_update)->save();
-        return redirect('/'.$post->id);
-    }
     
     public function search(Request $request,Post $post)
     {
