@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class Post extends Model
 {
@@ -33,9 +34,9 @@ class Post extends Model
         {
             $word = $elements['title'];
             //半角スペースを全角スペースにする
-            $request->words = mb_convert_kana($request->words, 's');
+            $word = mb_convert_kana($word, 's');
             //スペースごとに配列に格納
-            $strArry = preg_split('/[\s]+/', $request->words);
+            $strArry = preg_split('/[\s]+/', $word);
 
             //use Illuminate\Support\Collectionで配列要素全てにワイルドカード（%）を追加
             //$pが配列の要素ひとつずつになる. その要素に処理をして,returnで元の要素と入れ替えるイメージ
