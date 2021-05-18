@@ -45,8 +45,10 @@ class Post extends Model
                 return "%" . $p . "%";
             })->toArray();
             
-            $query->where('title','like',"%{$word}%")
-                ->orWhere('body','like',"%{$word}%");
+            foreach($search_words as $search_word){
+            $query->where('title','like',"%{$search_word}%")
+                ->orWhere('body','like',"%{$search_word}%");
+            }
         }else{
             $word = null;
         }
