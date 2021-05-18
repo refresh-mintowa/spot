@@ -32,6 +32,18 @@ class Post extends Model
         if(!empty($elements['title']))
         {
             $word = $elements['title'];
+            //半角スペースを全角スペースにする
+            $request->words = mb_convert_kana($request->words, 's');
+            //スペースごとに配列に格納
+            $strArry = preg_split('/[\s]+/', $request->words);
+
+            //use Illuminate\Support\Collectionで配列要素全てにワイルドカード（%）を追加
+            //$pが配列の要素ひとつずつになる. その要素に処理をして,returnで元の要素と入れ替えるイメージ
+            $search_words = Collection::make($strArry)->map(function($p)
+            {
+                return "%" . $p . "%";
+            })->toArray();
+            
             $query->where('title','like',"%{$word}%")
                 ->orWhere('body','like',"%{$word}%");
         }else{
