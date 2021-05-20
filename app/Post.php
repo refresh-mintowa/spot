@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
 
 class Post extends Model
 {
@@ -33,22 +32,8 @@ class Post extends Model
         if(!empty($elements['title']))
         {
             $word = $elements['title'];
-            //半角スペースを全角スペースにする
-            $word = mb_convert_kana($word, 's');
-            //スペースごとに配列に格納
-            $strArry = preg_split('/[\s]+/', $word);
-
-            //use Illuminate\Support\Collectionで配列要素全てにワイルドカード（%）を追加
-            //$pが配列の要素ひとつずつになる. その要素に処理をして,returnで元の要素と入れ替えるイメージ
-            $search_words = Collection::make($strArry)->map(function($p)
-            {
-                return "%" . $p . "%";
-            })->toArray();
-            
-            foreach($search_words as $search_word){
-            $query->where('title','like',"%{$search_word}%")
-                ->orWhere('body','like',"%{$search_word}%");
-            }
+            $query->where('title','like',"%{$word}%")
+                ->orWhere('body','like',"%{$word}%");
         }else{
             $word = null;
         }
