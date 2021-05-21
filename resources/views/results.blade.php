@@ -53,7 +53,9 @@
            </div>
        </div>
     @endforeach
-    
+    <div class="paginate">
+        {{ $users->links() }}
+    </div>
     <div class="button">
         <a href="/">戻る</a>
     </div>

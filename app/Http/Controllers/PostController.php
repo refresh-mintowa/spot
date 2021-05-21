@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 
+use Illuminate\Support\Facades\DB;
+
 class PostController extends Controller
 {
     public function index(Post $post,Area $area,Pref $pref)
@@ -63,10 +65,12 @@ class PostController extends Controller
         // フォームから検索条件引き出し
         $search_elements = $request->input('search');
         
+        $users = DB::table('posts')->simplePaginate(15);
+        
         // postクラスにて定義したsearchメソッド
         [$search_result,$category,$pref,$word] = $post->search($search_elements);
         
-        return view('results')->with(['search_results'=>$search_result,'category'=>$category,'pref'=>$pref,'word'=>$word]);
+        return view('results')->with(['search_results'=>$search_result,'category'=>$category,'pref'=>$pref,'word'=>$word,'users'=>$users]);
     }
     
     public function pref(Post $post,$id)
