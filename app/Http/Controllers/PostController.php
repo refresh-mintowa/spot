@@ -65,7 +65,7 @@ class PostController extends Controller
         // フォームから検索条件引き出し
         $search_elements = $request->input('search');
         
-        $users = DB::table('posts')->simplePaginate(15);
+        $users = DB::table('posts')->getPaginateByLimit(5);
         
         // postクラスにて定義したsearchメソッド
         [$search_result,$category,$pref,$word] = $post->search($search_elements);
