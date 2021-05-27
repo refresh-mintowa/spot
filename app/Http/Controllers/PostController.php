@@ -67,6 +67,8 @@ class PostController extends Controller
         
         $users = DB::table('posts')->getPaginateByLimit(5);
         
+        $paginate = $users->get();
+        
         // postクラスにて定義したsearchメソッド
         [$search_result,$category,$pref,$word] = $post->search($search_elements);
         
