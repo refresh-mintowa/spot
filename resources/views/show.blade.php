@@ -32,7 +32,7 @@
 </div>
 
 
-<script type="text/javascript" src="{{ asset('/js/map-api.js')}}"></script>
+<!--<script type="text/javascript" src="{{ asset('/js/map-api.js')}}"></script>-->
 <script src="https://maps.googleapis.com/maps/api/js?key={{ config('app.google_api') }}&callback=initMap" async defer></script>
 <script>
 　  var gmap;
